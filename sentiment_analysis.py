@@ -32,7 +32,7 @@ def removed_repeat_list(contents):
 #packages data into json
 def SA_package_contents_json(txt):
     total_sentiment = json.loads(post_request_response_SA(txt))['result']
-    return {'text':txt,'NN':extract_specific_tag(txt, 'NN'),'VB':extract_specific_tag(txt,'VB'),'polarity':total_sentiment['polarity'],'type':total_sentiment['type']}
+    return {'text':txt,'NN':extract_specific_tag(txt, 'NN'),'VB':extract_specific_tag(txt,'VB'), 'JJ':extract_specific_tag(txt,'JJ'),'polarity':total_sentiment['polarity'],'type':total_sentiment['type']}
 
 if __name__ == "__main__":
     print(SA_package_contents_json('''Shafaq News / A reliable local source reported that an ISIS attack on a factory in Heet district, west of al-Anbar Governorate, caused several causalities.
