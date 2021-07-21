@@ -10,7 +10,7 @@ class hello_world(Resource):
         post_received = request.get_json()
         text_received = post_received['txt']
         return {'response':[text_received,'hello again']}
-    
+
 
 api.add_resource(hello_world, '/api/nlp')
 
