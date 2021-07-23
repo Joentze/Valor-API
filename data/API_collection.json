@@ -1,0 +1,19 @@
+{
+    "API":{
+        "GET_REDDIT_MEME":{
+            "REQUEST-TYPE":"GET",
+            "URL":"https://meme-api.herokuapp.com/gimme",
+            "API-KEY":"-",
+            "RESPONSE-TYPE":"JSON",
+            "KEYS-IN-JSON":["postLink"]
+        },
+        "GET_SENTIMENT_ANALYSIS_TYPE":{
+            "REQUEST-TYPE":"POST",
+            "URL":"https://sentim-api.herokuapp.com/api/v1/",
+            "HEADERS":{"Accept": "application/json", "Content-Type": "application/json"},
+            "BODY":{"text":"this is a test for post requests"},
+            "RESPONSE-TYPE":"JSON",
+            "KEYS-IN-JSON":["result/type"]
+        }
+    }
+}
