@@ -3,6 +3,10 @@
         "GET_REDDIT_MEME":{
             "REQUEST-TYPE":"GET",
             "URL":"https://meme-api.herokuapp.com/gimme",
+            "FORM-STRING":{
+                "delimiter":"/",
+                "dir":["2"]
+            },
             "API-KEY":"-",
             "RESPONSE-TYPE":"JSON",
             "KEYS-IN-JSON":["postLink"]
@@ -13,7 +17,7 @@
             "HEADERS":{"Accept": "application/json", "Content-Type": "application/json"},
             "BODY":{"text":"this is a test for post requests"},
             "RESPONSE-TYPE":"JSON",
-            "KEYS-IN-JSON":["result/type"]
+            "KEYS-IN-JSON":["result/type", "result"]
         }
     }
 }

@@ -27,8 +27,8 @@ def process_json_response(JSON_response,KEYS_IN_JSON):
 def get_request(api_dict):
     URL =  api_dict['URL']
     FORM_STRING = 'string'
-    RESPONSE_TYPE = ['RESPONSE-TYPE']
-    response = rq.get(URL + FORM_STRING)
+    RESPONSE_TYPE = api_dict['RESPONSE-TYPE']
+    response = rq.get(URL)
     if RESPONSE_TYPE == "STRING":
         return response
     elif RESPONSE_TYPE == "JSON":
@@ -59,4 +59,4 @@ def process_api_response(function_name):
         return post_request(api_dict)
 
 if __name__ == "__main__":
-    print(process_api_response('GET_SENTIMENT_ANALYSIS_TYPE'))
+    print(process_api_response('GET_REDDIT_MEME'))
