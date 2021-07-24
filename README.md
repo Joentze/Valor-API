@@ -1,2 +1,5 @@
 # Valor-API
-API for Valor. Valor is a Natural Language UI outfitted with simple sentiment analysis and pre-programmed functions
+
+Valor-API is an API to manage other APIs and their responses.
+ 
+Valor-API has a natural language interface to access and manage these APIs
