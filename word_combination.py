@@ -3,12 +3,12 @@ import json
 from sentiment_analysis import SA_package_contents_json
 
 
-def init_token_map(file_dir):
+def get_dict_from_json(file_dir):
     with open(file_dir, 'r') as word_json:
         WORD_MAP=json.load(word_json)
     return WORD_MAP
 
-WORD_MAP = init_token_map('./data/word_map.json')
+WORD_MAP = get_dict_from_json('./data/word_map.json')
 
 def return_token_combi(string):
     words = string.split(' ')
@@ -18,6 +18,8 @@ def return_token_combi(string):
         if word in all_words:
             return_combi.append(WORD_MAP[word.lower().strip()])
     return return_combi
+
+
 
 if __name__ == "__main__":
     string = ''
