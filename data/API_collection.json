@@ -1,23 +1,44 @@
 {
-    "API":{
-        "GET_REDDIT_MEME":{
-            "REQUEST-TYPE":"GET",
-            "URL":"https://meme-api.herokuapp.com/gimme",
-            "FORM-STRING":{
-                "delimiter":"/",
-                "dir":["2"]
+    "API": {
+        "GET_REDDIT_MEME": {
+            "REQUEST-TYPE": "GET",
+            "URL": "https://meme-api.herokuapp.com/gimme",
+            "FORM-STRING": {
+                "delimiter": "/",
+                "dir": [
+                    "2"
+                ]
             },
-            "API-KEY":"-",
-            "RESPONSE-TYPE":"JSON",
-            "KEYS-IN-JSON":["postLink"]
+            "API-KEY": "-",
+            "RESPONSE-TYPE": "JSON",
+            "KEYS-IN-JSON": [
+                "postLink"
+            ]
         },
-        "GET_SENTIMENT_ANALYSIS_TYPE":{
-            "REQUEST-TYPE":"POST",
-            "URL":"https://sentim-api.herokuapp.com/api/v1/",
-            "HEADERS":{"Accept": "application/json", "Content-Type": "application/json"},
-            "BODY":{"text":"this is a test for post requests"},
-            "RESPONSE-TYPE":"JSON",
-            "KEYS-IN-JSON":["result/type", "result"]
+        "GET_SENTIMENT_ANALYSIS_TYPE": {
+            "REQUEST-TYPE": "POST",
+            "URL": "https://sentim-api.herokuapp.com/api/v1/",
+            "HEADERS": {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            "BODY": {
+                "text": "this is a test for post requests"
+            },
+            "RESPONSE-TYPE": "JSON",
+            "KEYS-IN-JSON": [
+                "result/type",
+                "result"
+            ]
+        },
+        "GET_DEFINITION": {
+            "REQUEST-TYPE": "GET",
+            "URL": "https://api.dictionaryapi.dev/api/v2/entries/en_US/idiotic",
+            "RESPONSE-TYPE": "JSON",
+            "KEYS-IN-JSON": [
+                "0/meanings/0/definitions/0/definition",
+                "0/meanings/0/partOfSpeech"
+            ]
         }
     }
 }

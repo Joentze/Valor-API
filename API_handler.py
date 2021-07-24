@@ -11,22 +11,31 @@ def navigate_to_key(dictionary, key_dir_from_root_list):
     curr_dict = dictionary
     try:    
         for curr_key in key_dir_from_root_list:
-            curr_dict = curr_dict[curr_key]
+            if curr_key.isnumeric():
+                int_key = int(curr_key)
+                curr_dict = curr_dict[int_key]
+            else:
+                curr_dict = curr_dict[curr_key]
         return curr_dict
     except:
         return "something went wrong!"
-    
+
+
 def process_json_response(JSON_response,KEYS_IN_JSON):
-    THIS_JSON = JSON_response.json()
+    if type(JSON_response) is not dict:
+        THIS_JSON = JSON_response.json()
+    else:
+        THIS_JSON = JSON_response
     return_list = []
     for key in KEYS_IN_JSON:
         dir_block = key.split('/')
         return_list.append(navigate_to_key(THIS_JSON,dir_block))
+
     return return_list
+
 
 def get_request(api_dict):
     URL =  api_dict['URL']
-    FORM_STRING = 'string'
     RESPONSE_TYPE = api_dict['RESPONSE-TYPE']
     response = rq.get(URL)
     if RESPONSE_TYPE == "STRING":
@@ -34,6 +43,7 @@ def get_request(api_dict):
     elif RESPONSE_TYPE == "JSON":
         KEYS_IN_JSON = api_dict['KEYS-IN-JSON']
         return process_json_response(response,KEYS_IN_JSON)
+
 
 def post_request(api_dict):
     URL =  api_dict['URL']
@@ -59,4 +69,4 @@ def process_api_response(function_name):
         return post_request(api_dict)
 
 if __name__ == "__main__":
-    print(process_api_response('GET_REDDIT_MEME'))
+    print(process_api_response('GET_DEFINITION'))
